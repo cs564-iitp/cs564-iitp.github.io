@@ -1,21 +1,24 @@
 # Site settings
-course_name: History of Magic
-course_description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare aliquam mattis. Donec hendrerit sollicitudin urna. Aliquam venenatis rutrum velit, at lobortis dui cursus a. Nam varius metus in turpis maximus, ut rhoncus tellus dictum. In aliquam tortor nec mi dapibus, sit amet vehicula dolor auctor."
-course_semester: "Fall 1998"
+course_name: "CS564: Advanced Machine Learning"
+course_description: "Course website for CS564 at IIT Patna. Contains lectures, assignments, and announcements."
 
-baseurl: "/jekyll-course-website-template" # the subpath of your site, e.g. /blog/
-url: "http://kazemnejad.github.io/" # the base hostname & protocol for your site
+course_semester: "Fall 2025"
 
-schoolname: "Hogwarts"
-schoolurl: "https://hogwarts.edu"
-twitter_username: username 
+# Update for your repo
+baseurl: "" # since this is a GitHub Pages project site, leave empty unless hosted under subpath
+url: "https://cs564-iitp.github.io" # the base hostname & protocol for your site
+
+schoolname: "Indian Institute of Technology Patna"
+schoolurl: "https://www.iitp.ac.in"
+
+# twitter_username: username  # <- commented out, not needed
 
 address: |
-    School of Witchcraft and Wizardry
-    Hogwarts
-    Scotland
+    Department of Computer Science and Engineering
+    IIT Patna
+    Bihta, Patna, India
 
-# Set your Google Analytics tracking ID (set up yours at http://www.google.com/analytics/)
+# Google Analytics (optional)
 # google_analytics: UA-XXXXXXXX-X
 
 ### Do not change the followings unless you know what you are doing ###
@@ -41,8 +44,7 @@ collections:
     assignments:
         output: true
     announcements:
-        output: false
-
+        output: true   # changed to true so announcements appear on site
 
 defaults:
   - scope:
