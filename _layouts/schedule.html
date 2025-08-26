@@ -1,6 +1,217 @@
 ---
 layout: default
 ---
+<style>
+.responsive-table {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+}
+
+.table-header {
+  background-color: #82df08;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  padding: 0.5em 0;
+  display: flex;
+}
+
+.table-row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 0.6em 0;
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: #f1f9ff; /* highlight on hover */
+}
+
+/* Zebra striping */
+.table-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.table-row:nth-child(odd) {
+  background-color: #fff;
+}
+
+.col {
+  flex: 1;
+  padding: 0 1em;
+}
+
+.col-1   { flex-basis: 20%; }
+.col-1-2 { flex-basis: 40%; }
+
+.date-spliter {
+  margin: 0.2em 0;
+}
+
+/* --- Title styling --- */
+.schedule-title {
+  margin: 0.75rem 0 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 0.02em;
+  color: #1f2937; /* slate-800 */
+  position: relative;
+  display: inline-block;
+}
+
+/* Accent underline with a soft glow for a subtle “pop” */
+.schedule-title::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 6px auto 0;
+  width: 60%;
+  max-width: 220px;
+  background: linear-gradient(90deg, rgba(130,223,8,0), #82df08, rgba(130,223,8,0));
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgba(130,223,8,0.35);
+}
+
+/* --- Minimal 3D for the table --- */
+.responsive-table {
+  border: 1px solid #d1d5db; /* slightly lighter border */
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.06);
+  background: #fff;
+}
+
+/* Header with a soft vertical gradient for depth */
+.table-header {
+  background: linear-gradient(180deg, #8eea19 0%, #78c907 100%); /* subtle depth */
+  color: #0b2910; /* darker text for contrast/readability */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.35);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Rows: keep zebra + add a tiny inset highlight for depth */
+.table-row {
+  background-clip: padding-box;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* Zebra striping refined (keeps your existing logic) */
+.table-row:nth-child(even) { background-color: #fafafa; }
+.table-row:nth-child(odd)  { background-color: #ffffff; }
+
+/* Hover: a subtle lift without breaking layout */
+.table-row:hover {
+  background-color: #f5fbff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  transform: translateZ(0); /* enables GPU-acceleration for crispness */
+}
+
+/* Column spacing tweaks */
+.col { padding: 0 1rem; }
+.col-1   { flex-basis: 22%; }
+.col-1-2 { flex-basis: 39%; }
+
+/* Optional: small screen niceties (stack labels) */
+@media (max-width: 640px) {
+  .table-header { display: none; }
+  .table-row { display: block; padding: 0.75em 0.5em; }
+  .table-row .col {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.25rem 0.5rem;
+  }
+  .table-row .col::before {
+    content: attr(data-label);
+    font-weight: 600; color: #374151; margin-right: 0.75rem;
+  }
+}
+/* --- Title styling --- */
+.schedule-title {
+  margin: 1rem 0 0.75rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.3em;
+  letter-spacing: 0.02em;
+  color: #2c3e50; /* dark slate */
+  position: relative;
+  display: inline-block;
+}
+
+.schedule-title::after {
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 6px auto 0;
+  width: 60%;
+  max-width: 220px;
+  background: linear-gradient(90deg, rgba(0,0,0,0), #9ca3af, rgba(0,0,0,0));
+  border-radius: 999px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+/* --- Minimal 3D for the table --- */
+.responsive-table {
+  border: 1px solid #e5e7eb; /* light gray */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Header with subtle gray gradient */
+.table-header {
+  background: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 100%);
+  color: #111827; /* near-black */
+  font-weight: 600;
+  border-bottom: 1px solid #d1d5db;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  padding: 0.6em 0;
+}
+
+/* Rows */
+.table-row {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.6em 0;
+  transition: background-color 0.2s ease;
+}
+
+/* Zebra striping */
+.table-row:nth-child(even) { background-color: #f9f9f9; }
+.table-row:nth-child(odd)  { background-color: #fff; }
+
+/* Hover effect */
+.table-row:hover {
+  background-color: #f3f4f6; /* light gray highlight */
+}
+
+/* Column spacing */
+.col { flex: 1; padding: 0 1rem; }
+.col-1   { flex-basis: 22%; }
+.col-1-2 { flex-basis: 39%; }
+
+/* Responsive mobile view */
+@media (max-width: 640px) {
+  .table-header { display: none; }
+  .table-row { display: block; padding: 0.75em 0.5em; }
+  .table-row .col {
+    display: flex; justify-content: space-between; align-items: baseline;
+    padding: 0.25rem 0.5rem;
+  }
+  .table-row .col::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #374151;
+    margin-right: 0.75rem;
+  }
+}
+
+</style>
+
 
 <header class="post-header">
     <h1 class="post-title">Schedule</h1>
@@ -10,25 +221,13 @@ layout: default
 
 <div class="home" style="font-size: 0.8em;">
     <ul class="responsive-table" style="margin-left: 0;">
-        <li class="table-header">
-            <div class="col col-1">Event</div>
-            <div class="col col-1-2">Date</div>
-            <div class="col col-2">Description</div>
-            <div class="col col-4">Course Material</div>
-        </li>
-        
-        {% assign all_assignment_dues = site.assignments | map: "due_event" %}
-
-        {% assign all_events = site.events | concat: site.lectures %}
-        {% assign all_events = all_events | concat: site.assignments %}
-        {% assign all_events = all_events | concat: all_assignment_dues %}
-        {% assign all_events_sorted = all_events | sort: 'date' %}
-
-        {% for event in all_events_sorted %}
-        <li class="table-row table-row-{{ event.type}}">
-            {% include schedule_row_{{ event.type }}.html event=event %}
-        </li>
-        {% endfor %}
-
+      <li class="table-header">
+        <div class="col col-1">Event</div>
+        <div class="col col-1-2">Date</div>
+        <div class="col col-1-2">Time</div>
+      </li>
+      <h3 class="schedule-title">Upcoming Classes</h3>
+      {% include upcoming_classes.html %}
     </ul>
-</div>
+  </div>
+  
