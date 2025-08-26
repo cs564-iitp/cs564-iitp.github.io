@@ -44,7 +44,7 @@ collections:
     assignments:
         output: true
     announcements:
-        output: true   # changed to true so announcements appear on site
+        output: false   # changed to true so announcements appear on site
 
 defaults:
   - scope:
