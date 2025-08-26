@@ -1,19 +1,20 @@
 instructors:
-  - name: Albus Dumbledore
-    profile_pic: /_images/pp/dumbledore.jpg
-    webpage: https://en.wikipedia.org/wiki/Albus_Dumbledore
-  - name: Minerva McGonagall
-    profile_pic: /_images/pp/mcgonagall.jpg
+  - name: Asif Ekbal
+    profile_pic: /_images/AsifEkbal.jpg
+    webpage: https://ekbalasif.github.io/
 
 teaching_assistants:
-  - name: Harry Potter
-    profile_pic: /_images/pp/potter.jpg
-    webpage: https://en.wikipedia.org/wiki/Harry_Potter_(character)
+  - name: Baban Gain
+    profile_pic: /_images/pp/dummy_male.jpg
 
-  - name: Hermione Granger
-    profile_pic: /_images/pp/granger.jpg
-    webpage: https://en.wikipedia.org/wiki/Hermione_Granger
+  - name: Nimisha Sinha
+    profile_pic: /_images/pp/dummy_female.webp
 
-  - name: Ron Weasley
-    profile_pic: /_images/pp/weasley.jpg
-    webpage: https://en.wikipedia.org/wiki/Ron_Weasley
+  - name: Tarun Mondal
+    profile_pic: /_images/pp/dummy_male.jpg
+
+  - name: Aijaz Mustafa
+    profile_pic: /_images/pp/dummy_male.jpg
+
+  - name: Saba Akram
+    profile_pic: /_images/pp/dummy_female.webp
