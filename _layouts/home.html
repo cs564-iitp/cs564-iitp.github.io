@@ -53,11 +53,14 @@ layout: default
                 {% for ta in site.data.people.teaching_assistants %}
                 <div class="image--cover-container">
                     <img src="{{ta.profile_pic | prepend: site.baseurl }}" class="image--cover">
-                    {% if ta.webpage %}
-                    <p><a href="{{ ta.webpage }}">{{ta.name}}</a></p>
+                    {% if ta.email %}
+                    <p><a href="mailto:{{ ta.email }}">{{ta.name}}</a></p>
                     {% else %}
                     <p>{{ta.name}}</p>
                     {% endif %}
+                    <!-- {% if ta.email %}
+                    <p>{{ta.email}}</p>
+                    {% endif %} -->
                 </div>
                 {% endfor %}
             </div>

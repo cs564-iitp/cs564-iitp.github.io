@@ -5,7 +5,8 @@ instructors:
 
 teaching_assistants:
   - name: Baban Gain
-    profile_pic: /_images/pp/dummy_male.jpg
+    email: gainbaban@gmail.com
+    profile_pic: /_images/pp/baban.jpg
 
   - name: Nimisha Sinha
     profile_pic: /_images/pp/dummy_female.webp
@@ -14,7 +15,8 @@ teaching_assistants:
     profile_pic: /_images/pp/dummy_male.jpg
 
   - name: Aijaz Mustafa
-    profile_pic: /_images/pp/dummy_male.jpg
+    email: aijazmustafa786@gmail.com
+    profile_pic: /_images/pp/aijaz.jpeg
 
   - name: Saba Akram
     profile_pic: /_images/pp/dummy_female.webp
