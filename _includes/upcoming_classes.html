@@ -2,6 +2,12 @@
     (function () {
       // Wed=3, Thu=4, Fri=5
       const WANTED = new Set([3,4,5]);
+      const VENUE_BY_DAY = {
+        3: 'R107',   // Wednesday
+        4: 'LT002',  // Thursday
+        5: 'LT001'   // Friday
+      };
+    
       const root = document.currentScript.parentElement; // <ul> wrapper
     
       const fmtDate = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
@@ -14,7 +20,7 @@
       for (let i = 0; next.length < 3; i++) {
         const d = new Date(today.getTime() + i*86400000);
     
-        // NEW: if it's today and time is already past 3 PM, skip today
+        // Skip today if it's already past 3 PM
         if (d.getTime() === today.getTime() && now.getHours() >= 15) continue;
     
         if (WANTED.has(d.getDay())) next.push(d);
@@ -28,6 +34,7 @@
             <br class="date-spliter"/>${fmtDay.format(d)}
           </div>
           <div class="col col-1-2" data-label="Time">2:00&nbsp;PM – 2:55&nbsp;PM</div>
+          <div class="col col-1-2" data-label="Venue">${VENUE_BY_DAY[d.getDay()] || ''}</div>
         </li>
       `).join('');
     
