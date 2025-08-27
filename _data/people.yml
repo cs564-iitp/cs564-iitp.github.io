@@ -9,14 +9,16 @@ teaching_assistants:
     profile_pic: /_images/pp/baban.jpg
 
   - name: Nimisha Sinha
+    email: nimishasinha19101970@gmail.com
     profile_pic: /_images/pp/dummy_female.webp
 
   - name: Tarun Mondal
-    profile_pic: /_images/pp/dummy_male.jpg
+    profile_pic: /_images/pp/tarun.jpeg
 
   - name: Aijaz Mustafa
     email: aijazmustafa786@gmail.com
     profile_pic: /_images/pp/aijaz.jpeg
 
   - name: Saba Akram
-    profile_pic: /_images/pp/dummy_female.webp
+    email: sabaakram539@gmail.com
+    profile_pic: /_images/pp/dummy_male.jpg

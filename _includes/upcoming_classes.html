@@ -4,16 +4,19 @@
       const WANTED = new Set([3,4,5]);
       const root = document.currentScript.parentElement; // <ul> wrapper
     
-      const fmtDate = new Intl.DateTimeFormat(undefined, {
-        year: 'numeric', month: 'long', day: 'numeric'
-      });
+      const fmtDate = new Intl.DateTimeFormat(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
       const fmtDay  = new Intl.DateTimeFormat(undefined, { weekday: 'long' });
     
-      const today = new Date(); today.setHours(0,0,0,0);
+      const now = new Date();
+      const today = new Date(now); today.setHours(0,0,0,0);
     
       const next = [];
       for (let i = 0; next.length < 3; i++) {
         const d = new Date(today.getTime() + i*86400000);
+    
+        // NEW: if it's today and time is already past 3 PM, skip today
+        if (d.getTime() === today.getTime() && now.getHours() >= 15) continue;
+    
         if (WANTED.has(d.getDay())) next.push(d);
       }
     
