@@ -218,6 +218,30 @@ layout: default
 </header>
 
 {{ content }}
+<div class="home" style="font-size: 0.8em;">
+  <ul class="responsive-table" style="margin-left: 0;">
+    <li class="table-header" style="display:flex; font-weight:bold; padding:8px 0; border-bottom:1px solid #ddd;">
+      <div style="flex:1; text-align:left;">Event</div>
+      <div style="flex:1; text-align:left;">Date</div>
+      <div style="flex:1; text-align:left;">Description</div>
+    </li>
+    
+      
+      {% assign all_assignment_dues = site.assignments | map: "due_event" %}
+
+      {% assign all_events = all_events | concat: all_assignment_dues %}
+      {% assign all_events_sorted = all_events | sort: 'date' %}
+
+      {% for event in all_events_sorted %}
+      <li class="table-row table-row-{{ event.type}}">
+          {% include schedule_row_{{ event.type }}.html event=event %}
+      </li>
+      {% endfor %}
+
+  </ul>
+</div>
+<h3 class="schedule-title">Upcoming Classes</h3>
+
 
 <div class="home" style="font-size: 0.8em;">
     <ul class="responsive-table" style="margin-left: 0;">
@@ -227,7 +251,6 @@ layout: default
         <div class="col col-1-2">Time</div>
         <div class="col col-1-2">Venue</div>
       </li>
-      <h3 class="schedule-title">Upcoming Classes</h3>
       {% include upcoming_classes.html %}
     </ul>
   </div>
